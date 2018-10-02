@@ -1,10 +1,12 @@
 import numpy as np
+from numba import jit
 
 
+@jit(nopython=True)
 def calculate(realMin, realMax, imagMin, imagMax,
               resolution, iterations, x_0=0):
     """Computes an array of intensity values for a given rectangle and
-    resolution in the mandelbrot set.
+    resolution in the mandelbrot set using numba.jit for efficiency.
 
     Args:
         realMin (float): Minimum value of the real part.
@@ -45,7 +47,7 @@ def calculate(realMin, realMax, imagMin, imagMax,
                 if abs(x) >= 2:
                     # Gives the pixel an value with intensity corresponding
                     # to how fast it diverges, then breaks the loop.
-                    image[z2, z1] = i + 1
+                    image[z2, z1] = i
                     break
                 else:
                     # Sets x to the next value in the sequence
@@ -62,6 +64,6 @@ if __name__ == "__main__":
     imagMax = 1
     t1 = time.time()
     image = calculate(realMin, realMax, imagMin, imagMax, (1000, 1000), 1000)
-    print(time.time()-t1)
+    print(time.time() - t1)
     plt.imshow(image, extent=(realMin, realMax, imagMin, imagMax))
     plt.show()

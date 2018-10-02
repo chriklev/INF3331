@@ -1,0 +1,4 @@
+The main pro of using jit is that it is impossible to numpy vectorize a loop
+that needs to use the previous value of the loop when calculating the next one.
+The disadvantage is that you have to manually write methods that could be
+very quicly done with numpy functions.

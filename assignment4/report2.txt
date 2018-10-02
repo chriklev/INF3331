@@ -1,0 +1,10 @@
+I ran both methods with parameters:
+  realMin = -1.5
+  realMax = 0.5
+  imagMin = -1
+  imagMax = 1
+  resolution = (1000, 1000)
+  iterations = 1000
+
+mandelbrot_1.py used 88.460 s
+mandelbrot_2.py used 9.139 s
