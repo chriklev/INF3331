@@ -1,0 +1,85 @@
+\documentclass[a4paper]{article}
+
+% Import some useful packages
+\usepackage[margin=0.5in]{geometry} % narrow margins
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.95}
+
+\title{Peer-review of assignment 4 for \textit{INF3331-chriklev}}
+\author{Reviewer 1, torgrirn, {torgrirn@student.matnat.uio.no} \\
+ 		Reviewer 2, sofiemj, {sofiemj@student.matnat.uio.no} \\
+		Reviewer 3, chrisye, {chrisye@uio.no}}
+
+\begin{document}
+\maketitle
+
+
+
+
+
+
+
+\section{Review}\label{sec:review}
+
+\textbf{Python version and operation system:}\\
+Python 3.5.5, Ubuntu 18.04.1 LTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.1}
+Well documented with good docstring and useful comments.\\
+The code is easy to read and pretty self-explanatory. \\
+Code works as expected. No need to validate inputs. \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.2} \label{sec:assignment5.2}
+Good docstring, but the code is not commented as well as in 4.1. It is, however, fairly short and self-explanatory.\\
+Got the warning: "RuntimeWarning: overflow encountered in square w[ind] = w[ind]**2 + z[ind]" when running this script, but the code seems to work as expected.\\
+Numpy is used in an effectively. I see no obvious way to improve this.\\
+Runtimes are listed in the report, but I miss a calculation of the speed increase.\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.3}
+Good docstring here as well. The code is easy to read and well commented.\\
+Works as expected with significant speed increase.\\
+Report does not contain runtime numbers.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.4}
+INF3331, so no Cython implementation.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.5}
+The interactive user interface is a cool idea, but it is a little confusing. A non-interactive interface could probably have been solved more elegant using Argparse for command line arguments.\\
+The script fails if path (location to save image) is set to home directory. This should not be a problem in most cases. Given a negative value for iterations, the script still runs, but creates a blank image. It might be a good idea to return an error instead.\\
+The script is relatively simple program, but it lacks comments.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.6}
+The setup script installs the module/package, but I cannot find a "compute\_mandelbrot" function.
+The "test\_outside" function will not check values after zero iterations if given a region that is partly inside the mandelbrot set. In this case, the calculate function it will continue to run until it is done.\\
+There should be an explanation of how to run the tests. \\
+The names of the tests are meaningful enough to understand what it's about.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.7}
+Not implemented.
+
+\subsection*{Assignment 4.8}
+Not implemented.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{General feedback}
+Good work, but there should be a readme file to explain how to run the code.\\ 
+
+
+\bibliographystyle{plain}
+\bibliography{literature}
+
+\end{document}
