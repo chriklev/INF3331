@@ -1,0 +1,11 @@
+numbers: 0;42
+functions: 0;41
+arithmetic_operators: 0;4
+assignment_operators: 0;4
+comparison_operators: 0;4
+logical_operators: 0;46
+statements: 0;44
+special: 0;45
+string: 0;7
+comment: 0;5
+doc-string: 0;5

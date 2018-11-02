@@ -1,0 +1,15 @@
+The reason the regular exspressions are so long is because im first checking if
+it is inside a docstring, comment or string so that i dont color code in
+non-code text. There's probably a better\cleaner way of doing this, but this works.
+
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|\b\d+\b)": numbers
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|\b\w+(?=\(.*\)))": functions
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|(?:\+|\-|\*|\/|\/\/|\%|\&|\<\<|\>\>|\*\*|\^)(?=[^=]))": arithmetic_operators
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|==|!=|=|(?:\+|\-|\*|\/|\/\/|%|&|<<|>>|\*\*|\^)=)": assignment_operators
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|(?:[=<>!]=)|<|>|<>)": comparison_operators
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|\b(and|or|not)\b)": logical_operators
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|\b(with|as|for|in|if|elif|else|try|except|catch|while|class|def|raise|import|from|pass|break)\b)": statements
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(?:\".*?\"|\'.*?\')|\b(True|False|None)\b)": special
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(?:#.*)|(\".*?\"|\'.*?\'))": string
+"((?:[\"\']{3}(?:.|\n)*?[\"\']{3})|(#.*))": comment
+"([\"\']{3}(.|\n)*?[\"\']{3})": doc-string
