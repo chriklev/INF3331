@@ -1,0 +1,57 @@
+from flask import Flask, render_template, request
+import matplotlib
+matplotlib.use('Agg')
+import temperature_CO2_plotter as plotter
+import matplotlib.pyplot as plt
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def root():
+    return render_template("home_page.html")
+
+
+@app.route("/co2_plot/")
+def co2_plot():
+    tmin = request.args.get("tmin")
+    tmax = request.args.get("tmax")
+    t_b = (int(tmin), int(tmax)) if tmin != "" and tmax != "" else None
+    ymin = request.args.get("ymin")
+    ymax = request.args.get("ymax")
+    y_b = (float(ymin), float(ymax)) if ymin != "" and ymax != "" else None
+    plotter.plot_CO2(time_bounds=t_b, y_bounds=y_b)
+    plt.savefig("static/plot_img.png")
+    return render_template("show_plot.html")
+
+
+@app.route("/temperature_plot/")
+def temperature_plot():
+    months = request.args.getlist("month")
+    if len(months) == 0:
+        months = "January"
+    tmin = request.args.get("tmin")
+    tmax = request.args.get("tmax")
+    t_b = (int(tmin), int(tmax)) if tmin != "" and tmax != "" else None
+    ymin = request.args.get("ymin")
+    ymax = request.args.get("ymax")
+    y_b = (float(ymin), float(ymax)) if ymin != "" and ymax != "" else None
+    plotter.plot_temperature(months, time_bounds=t_b, y_bounds=y_b)
+    plt.savefig("static/plot_img.png")
+    return render_template("show_plot.html")
+
+
+@app.route("/help/")
+def help():
+    return render_template("_build/html/temperature_CO2_plotter.html")
+
+
+@app.after_request
+def disable_caching(response):
+    response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+    response.headers['Pragma'] = 'no-cache'
+    return response
+
+
+if __name__ == "__main__":
+    app.run()

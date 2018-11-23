@@ -1,0 +1,178 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>&lt;no title&gt; &#8212; CO2 and temperature plotter 11.23.18 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<dl class="docutils">
+<dt>def plot_temperature(months, time_bounds=None, y_bounds=None):</dt>
+<dd><p class="first">“”“Plots the temperatures of given months vs years</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>months (string): The month for witch temperature values to plot. Can</dt>
+<dd>also be list of strings with several month names.</dd>
+<dt>time_bounds (tuple or list): Optional argument with minimum and maximum</dt>
+<dd>for the years to plot. Must be tuple or list, of integers or floats
+on the form: (minimum, maximum)</dd>
+<dt>y_bounds (tuple or list): Optional argument with minimum and maximum</dt>
+<dd>for the y-axis. Must be tuple or list, of integers or floats
+on the form: (minimum, maximum)</dd>
+</dl>
+</dd>
+</dl>
+<p>“””
+temperatures = pd.read_csv(</p>
+<blockquote>
+<div>“temperature.csv”,
+usecols=[“Year”].append(months))</div></blockquote>
+<dl class="docutils">
+<dt>if time_bounds:</dt>
+<dd><dl class="first docutils">
+<dt>bounds = temperatures[“Year”].map(</dt>
+<dd>lambda x: x &gt;= time_bounds[0] and x &lt;= time_bounds[1])</dd>
+</dl>
+<p class="last">temperatures = temperatures[bounds]</p>
+</dd>
+</dl>
+<p class="last">temperatures.plot(“Year”, months, ylim=y_bounds)
+plt.title(“Temperature vs. year for given months”)
+plt.xlabel(“time [years]”)
+plt.ylabel(“temperature [celsius]”)</p>
+</dd>
+<dt>def plot_CO2(time_bounds=None, y_bounds=None):</dt>
+<dd><p class="first">“”“Plots global carbon emmissions vs years</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>time_bounds (tuple or list): Optional argument with minimum and maximum</dt>
+<dd>for the years to plot. Must be tuple or list, of integers or floats
+on the form: (minimum, maximum)</dd>
+<dt>y_bounds (tuple or list): Optional argument with minimum and maximum</dt>
+<dd>for the y-axis. Must be tuple or list, of integers or floats
+on the form: (minimum, maximum)</dd>
+</dl>
+</dd>
+</dl>
+<p>“””
+co2 = pd.read_csv(“co2.csv”)</p>
+<dl class="docutils">
+<dt>if time_bounds:</dt>
+<dd><dl class="first docutils">
+<dt>bounds = co2[“Year”].map(</dt>
+<dd>lambda x: x &gt;= time_bounds[0] and x &lt;= time_bounds[1])</dd>
+</dl>
+<p class="last">co2 = co2[bounds]</p>
+</dd>
+</dl>
+<p class="last">co2.plot(“Year”, “Carbon”, ylim=y_bounds, legend=False)
+plt.title(“Global carbon emmissions vs. year”)
+plt.xlabel(“time [years]”)
+plt.ylabel(“carbon emmissions [million metric tons]”)</p>
+</dd>
+<dt>if __name__ == “__main__”:</dt>
+<dd><p class="first">plot_CO2()
+plt.show()
+plot_temperature(</p>
+<blockquote>
+<div>[“January”, “February”, “March”])</div></blockquote>
+<p class="last">plt.show()</p>
+</dd>
+</dl>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CO2 and temperature plotter</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Christoffer Kleven Berg.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/temperature_CO2_plotter.py.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

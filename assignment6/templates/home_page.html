@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CO2 and temperature plotter</title>
+  </head>
+  <body>
+    <h1>CO2 and temperature plotter</h1>
+    <p>This is a web-application for plotting CO2 and temperature data.<br>
+       Please enter plot spesifications below(blank will plot with default
+       values). Click <a href="/help/">help</a> for help page </p>
+  </body>
+  <form action="/temperature_plot/">
+    <h2>....................Temperature....................</h2>
+    <p><b>Month(s):</b><br>
+      <input type="checkbox" id="january" name="month" value="January" checked>
+      <label for="january">January</label>
+      <input type="checkbox" id="february" name="month" value="February">
+      <label for="february">February</label>
+      <input type="checkbox" id="march" name="month" value="March">
+      <label for="march">March</label>
+      <input type="checkbox" id="april" name="month" value="April">
+      <label for="april">April</label>
+      <input type="checkbox" id="may" name="month" value="May">
+      <label for="may">May</label>
+      <input type="checkbox" id="june" name="month" value="June">
+      <label for="june">June</label>
+      <input type="checkbox" id="july" name="month" value="July">
+      <label for="july">July</label>
+      <br>
+      <input type="checkbox" id="august" name="month" value="August">
+      <label for="august">August</label>
+      <input type="checkbox" id="september" name="month" value="September">
+      <label for="september">September</label>
+      <input type="checkbox" id="october" name="month" value="October">
+      <label for="october">October</label>
+      <input type="checkbox" id="november" name="month" value="November">
+      <label for="november">November</label>
+      <input type="checkbox" id="december" name="month" value="December">
+      <label for="december">December</label>
+    </p>
+    <p><b>y-axis [celsius]:</b><br>
+      min: <input type="number" name="ymin" type="float">
+      max: <input type="number" name="ymax" type="float"> <br>
+      <b>time [years]:</b><br>
+      start: <input type="number" name="tmin" type="int" max="2012" >
+      end:   <input type="number" name="tmax" type="int" min="1816"> <br>
+    </p>
+    <input type="submit" value="Plot temperature">
+
+  </form>
+  <form action="/co2_plot/">
+    <h2>...........................CO2...........................</h2>
+    <p>
+      <b>y-axis [million metric tons of carbon]:</b><br>
+      min: <input type="number" name="ymin" type="float">
+      max: <input type="number" name="ymax" type="float"> <br>
+      <b>time [years]:</b><br>
+      start: <input type="number" name="tmin" type="int" max="2012">
+      end:   <input type="number" name="tmax" type="int" min="1751"> <br>
+    </p>
+    <input type="submit" value="Plot CO2">
+  </form>
+</html>
