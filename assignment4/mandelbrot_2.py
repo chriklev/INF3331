@@ -42,7 +42,7 @@ def calculate(realMin, realMax, imagMin, imagMax,
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     import time
-    realMin = -1.5
+    realMin = -3.5
     realMax = 0.5
     imagMin = -1
     imagMax = 1

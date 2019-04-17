@@ -1,0 +1,20 @@
+START...Mon Sep  3 01:50:55 CEST 2018
+LABEL...just doin som stuff
+STOP....Mon Sep  3 01:51:00 CEST 2018
+
+START...Mon Sep  3 01:51:12 CEST 2018
+LABEL...more stuff
+STOP....Mon Sep  3 01:51:14 CEST 2018
+
+START...Mon Sep  1 00:34:28 CEST 2018
+LABEL...strudel wasa
+STOP....Mon Sep  3 01:51:30 CEST 2018
+
+START...Mon Sep  3 02:17:51 CEST 2018
+LABEL...håper denne viser lenge
+STOP....Mon Sep  3 02:25:08 CEST 2018
+
+START...Mon Sep  3 02:39:45 CEST 2018
+LABEL...i walk a whale trail
+STOP....Mon Sep  3 02:41:17 CEST 2018
+

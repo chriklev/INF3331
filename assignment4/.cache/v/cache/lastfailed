@@ -1,0 +1,5 @@
+{
+  "MandelbrotGen/mandelbrotGen/test_mandelbrot.py::test_position": true, 
+  "test_mandelbrot.py": true, 
+  "test_mandelbrot.py::test_position": true
+}
